@@ -1,5 +1,5 @@
 <ul>
   <% @pokemons.each do |pokemon| %>
-    <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>
+    <li><%= link_to pokemon.name, pokemon_path(pokemon, language: "ermahgerd") %></li>
   <% end %>
 </ul>
