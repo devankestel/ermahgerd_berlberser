@@ -4,7 +4,6 @@ class PokemonsController < ApplicationController
   end
   def show
     @pokemon = Pokemon.find(params[:id])
-    #@pokemon = Ermahgerd.find_by(sprite: pokemon.sprite)
     @language = "pirate" #set default language
   end
 
