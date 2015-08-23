@@ -1,4 +1,4 @@
-
+<%= render partial: "link", locals: { links: ["ermahgerd", "chef", "pirate", "fudd"], pokemon: params[:id] } %>
 
 <h1><%= @pokemon.select_entry(@language).name %></h1>
 <%= image_tag(@pokemon.sprite) %>
