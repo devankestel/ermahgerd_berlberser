@@ -11,54 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629014021) do
+ActiveRecord::Schema.define(version: 20150823024133) do
 
-  create_table "ermahgerds", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "sprite"
-    t.string   "number"
+    t.string   "language"
+    t.integer  "pokemon_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "evolutions", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "level"
-    t.integer  "pokemon_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "pokemons", force: :cascade do |t|
+    t.string   "sprite_file_name"
+    t.string   "sprite_content_type"
+    t.integer  "sprite_file_size"
+    t.datetime "sprite_updated_at"
+    t.integer  "number"
     t.string   "name"
     t.string   "description"
-    t.string   "sprite"
-    t.integer  "number"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "stats", force: :cascade do |t|
-    t.integer  "height"
-    t.integer  "weight"
-    t.integer  "hp"
-    t.integer  "attack"
-    t.integer  "defense"
-    t.integer  "special_attack"
-    t.integer  "special_defense"
-    t.integer  "speed"
-    t.integer  "total"
-    t.integer  "pokemon_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "pokemon_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
 end

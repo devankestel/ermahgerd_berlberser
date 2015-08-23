@@ -1,7 +1,9 @@
-<h1><%= @pokemon.name %></h1>
+
+
+<h1><%= @pokemon.select_entry(@language).name %></h1>
 <%= image_tag(@pokemon.sprite) %>
 <h2><%= @pokemon.number %></h2>
-<p><%= @pokemon.description %></p>
+<p><%= @pokemon.select_entry(@language).description %></p>
 </ul>
 
 <%= link_to "Back to Pokedex", pokemons_path %>
