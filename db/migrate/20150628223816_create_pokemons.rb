@@ -4,8 +4,6 @@ class CreatePokemons < ActiveRecord::Migration
       t.attachment :sprite
       t.integer :number
       t.string :name
-      t.string :description
-      
 
       t.timestamps null: false
     end

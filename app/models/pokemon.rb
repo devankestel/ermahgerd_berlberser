@@ -1,5 +1,6 @@
 class Pokemon < ActiveRecord::Base
   has_many :entries
+  has_many :descriptions
   has_attached_file :sprite
   validates_attachment_file_name :sprite, matches: [/svg\Z/, /jpe?g\Z/]
 

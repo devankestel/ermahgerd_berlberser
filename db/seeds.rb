@@ -20,31 +20,41 @@ Pokemon.destroy_all
 
 image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
 pkmn = Pokemon.create!(name: "Bulbasaur", 
-                number: 1,
-                description: "Oh my god, a wild bulbasaur!")
+                number: 1)
 pkmn.sprite = image
 image.close
 pkmn.save!
 
 bulbasaur = Pokemon.find_by(number: 1)
 puts bulbasaur.name
-puts bulbasaur.description
 
-ermahgerd = bulbasaur.entries.create(name: "Berlberser",
-                                     description: "Ermahgerd, a werld Berlberser!",
+desc1 = bulbasaur.descriptions.create!(text: "Oh my god, a wild Bulbasuar!")
+desc2 = bulbasaur.descriptions.create!(text: "Another Bulbasaur description.")
+
+ermahgerd = bulbasaur.entries.create!(name: "Berlberser",
                                      language: "ermahgerd")
 
-chef = bulbasaur.entries.create(name: "Bulbasah",
-                                     description: "Bork Bork Bork!",
+terns1 = ermahgerd.translations.create!(text: "Ermahgerd, a werld Berlberser!")
+terns2 = ermahgerd.translations.create!(text: "Ernerther Berlberser dersrerptern.")
+
+chef = bulbasaur.entries.create!(name: "Bulbasah",
                                      language: "chef")
 
-fudd = bulbasaur.entries.create(name: "Buwbasaw",
-                                     description: "Wewd Buwbasaw!",
-                                     language: "fudd")
+bork1 = chef.translations.create!(text: "Bork Bork Bork!")
+bork2 = chef.translations.create!(text: "Another Bork Bork Bork")
 
-pirate = bulbasaur.entries.create(name: "Bulbasarrr",
-                                     description: "Avast! A Bulbasarrr!",
-                                     language: "pirate")
+fudd = bulbasaur.entries.create!(name: "Buwbasaw",
+                                 language: "fudd")
+
+twan1 = fudd.translations.create!(text:  "Wewd Buwbasaw!")
+twan2 = fudd.translations.create!(text: "Awnuder Buwbasaw descwiption.")
+
+pirate = bulbasaur.entries.create!(name: "Bulbasarrr",
+                                    language: "pirate")
+
+trrran1 = pirate.translations.create!(text:  "Avast! A Bulbasarrr!")
+trrran2 = pirate.translations.create!(text: "Bulbasarrr, me hardy.")
+ 
 
 
 
