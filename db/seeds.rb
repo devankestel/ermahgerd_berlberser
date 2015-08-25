@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+include ApplicationHelper
+
 require 'paperclip/media_type_spoof_detector'         
 module Paperclip         
  class MediaTypeSpoofDetector        
@@ -54,6 +56,29 @@ pirate = bulbasaur.entries.create!(name: "Bulbasarrr",
 
 trrran1 = pirate.translations.create!(text:  "Avast! A Bulbasarrr!")
 trrran2 = pirate.translations.create!(text: "Bulbasarrr, me hardy.")
+
+puts random_pirate_exclamation
+puts random_pirate_exclamation
+puts random_pirate_exclamation
+puts random_pirate_exclamation
+puts ""
+puts to_fudd("Be verry quiet. There's that rascally Bulbasaur.")
+puts ""
+puts random_pirate_verb("VBP")
+puts random_pirate_verb("VB")
+puts random_pirate_verb("VBG")
+puts random_pirate_verb("VBZ")
+puts random_pirate_verb("VBN")
+puts random_pirate_verb("VVV")
+puts ""
+puts random_pirate_adjective
+puts random_pirate_adjective
+puts random_pirate_adjective
+puts ""
+puts "#{random_pirate_exclamation} #{pirate_direct('There')} #{pirate_direct('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
+
+
+
  
 
 

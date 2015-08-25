@@ -3,8 +3,8 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
 
       t.string :name
-      t.string :description
       t.string :language
+      t.string :number
       t.integer :pokemon_id
 
       t.timestamps null: false
