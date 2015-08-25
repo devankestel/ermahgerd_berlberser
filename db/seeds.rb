@@ -62,7 +62,7 @@ puts random_pirate_exclamation
 puts random_pirate_exclamation
 puts random_pirate_exclamation
 puts ""
-puts to_fudd("Be verry quiet. There's that rascally Bulbasaur.")
+puts to_fudd("Shhh! Be verrry quiet. I'm hunting a rascally Bulbasaur.")
 puts ""
 puts random_pirate_verb("VBP")
 puts random_pirate_verb("VB")
@@ -77,8 +77,9 @@ puts random_pirate_adjective
 puts ""
 puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
 puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
+puts to_fudd("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
 
-puts "is/VBZ".include? "/V"
+
  
 
 

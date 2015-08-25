@@ -11,7 +11,7 @@ module ApplicationHelper
     exclamations[index]
   end
   def to_arrr(text)
-    text.gsub("er", "arrr").gsub("ar", "arrr").gsub("aur", "arrr").gsub("Er", "Arrr").gsub("Ar", "Arrr").gsub("Aur", "Arrr")
+    text.gsub("ar", "arrr").gsub("er", "arrr").gsub("aur", "arrr").gsub("Ar", "Arrr").gsub("Er", "Arrr").gsub("Aur", "Arrr")
   end
   def to_pirate(text)
     tagger = EngTagger.new
@@ -64,25 +64,25 @@ module ApplicationHelper
   end
 
   def random_pirate_adjective
-    adjectives = ["swarthy", "smarmy", "tetchy", "lily-livered", "scurvy", "squiffy", "salty"]
+    adjectives = ["swarthy", "smarmy", "tetchy", "lily-livered", "scurvy", "squiffy", "salty", "pox-faced", "bilge-drinkin'", "yellow-bellied", "barnacle-bottomed", "treacherous"]
     index = rand(0..adjectives.length-1)
     adjectives[index]
   end
   def random_pirate_verb(tag)
     if tag == "VB" || tag == "VBP"
-      verbs = ["swashbuckle", "plunder", "swab", "blether", "careen", "maroon"]
+      verbs = ["swashbuckle", "plunder", "swab", "blether", "careen", "maroon", "furl", "hornswaggle", "scuttle", "hoist"]
       index = rand(0..verbs.length-1)
       verbs[index]
     elsif tag == "VBG"
-      verbs = ["swashbuckling", "plundering", "swabbing", "blethering", "careening", "marooning"]
+      verbs = ["swashbuckling", "plundering", "swabbing", "blethering", "careening", "marooning", "furling", "hornswaggling", "scuttling", "hoisting"]
       index = rand(0..verbs.length-1)
       verbs[index]
     elsif tag == "VBZ"
-      verbs = ["swashbuckles", "plunders", "swabs", "blethers", "careens", "maroons"]
+      verbs = ["swashbuckles", "plunders", "swabs", "blethers", "careens", "maroons", "furls", "hornswaggles", "scuttles", "hoists"]
       index = rand(0..verbs.length-1)
       verbs[index]
     elsif tag == "VBN"
-      verbs = ["swashbuckled", "plundered", "swabbed", "blethered", "careened", "marooned"]
+      verbs = ["swashbuckled", "plundered", "swabbed", "blethered", "careened", "marooned", "furled", "hornswaggled", "scuttled", "hoisted"]
       index = rand(0..verbs.length-1)
       verbs[index]
     else
