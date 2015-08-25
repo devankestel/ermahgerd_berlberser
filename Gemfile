@@ -30,6 +30,10 @@ gem 'httparty'
 
 gem 'paperclip'
 
+#Allows for tagging of parts of speech
+
+gem 'engtagger'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

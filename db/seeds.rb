@@ -75,10 +75,10 @@ puts random_pirate_adjective
 puts random_pirate_adjective
 puts random_pirate_adjective
 puts ""
-puts "#{random_pirate_exclamation} #{pirate_direct('There')} #{pirate_direct('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
+puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
+puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
 
-
-
+puts "is/VBZ".include? "/V"
  
 
 

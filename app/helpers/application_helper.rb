@@ -1,3 +1,5 @@
+require 'engtagger'
+
 module ApplicationHelper
   
   def to_fudd(text)
@@ -11,20 +13,36 @@ module ApplicationHelper
   def to_arrr(text)
     text.gsub("er", "arrr").gsub("ar", "arrr").gsub("aur", "arrr").gsub("Er", "Arrr").gsub("Ar", "Arrr").gsub("Aur", "Arrr")
   end
-  def pirate_direct(text)
+  def to_pirate(text)
+    tagger = EngTagger.new
+    #diagram text by parts of speech
+    diagrammed_text = tagger.get_readable(text)
     #split text into words
-    #iterate through words and chain a series of gsubs
-    #take returned array and combine back into string
-
-    pirate_subs(text)
-
-    #there, their, they're => thar
-    #is => be
-    #you => ye
-    #yes => aye
-    #my => me
-    #of => o'
-    #your => yer
+    words = diagrammed_text.split
+    phrase_array = []
+    words.each do |word|
+      if (word.include? "/V")&&(word!="is/VBZ")&&(word!="Is/VBZ") #verb excluding reserved pirate verb 'is'
+        #split up word + extra
+        word_split = word.split("/")
+        word = word_split[0]
+        part_of_speech = word_split[1]
+        word = random_pirate_verb(part_of_speech)
+      elsif word.include? "/JJ" || "/RB" #adjective or adverb
+        word = random_pirate_adjective
+      else
+        #strip verbage
+        word_split = word.split("/")
+        word = word_split[0]
+        if word != pirate_subs(word) #reserved pirate word
+          word = pirate_subs(word)
+        else
+          word = to_arrr(word)
+        end  
+      end
+      phrase_array << word
+    end
+    #join phrase_array
+    phrase_array.join(" ").gsub(" ,", ",").gsub(" .", ".")
   end
 
   def pirate_subs(word)
