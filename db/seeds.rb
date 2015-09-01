@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 include ApplicationHelper
+class String; include Cheferize; end
 
 require 'paperclip/media_type_spoof_detector'         
 module Paperclip         
@@ -19,6 +20,9 @@ end
 
 
 Pokemon.destroy_all
+Description.destroy_all
+Entry.destroy_all
+Translation.destroy_all
 
 image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
 pkmn = Pokemon.create!(name: "Bulbasaur", 
@@ -78,34 +82,44 @@ puts ""
 puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
 puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
 puts to_fudd("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
+puts "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.".to_chef
 
 
- 
+pokemon_data = []
+pokemon_data[0] = nil
+(152..157).each do |number|
+  pokemon_data[number] = HTTParty.get("http://pokeapi.co/api/v1/pokemon/#{number}/")
+end
+
+puts pokemon_data[152]["name"]
+
+base_uri = "http://pokeapi.co"
+
+pokemon_data.each do |pokemon|
+  if pokemon #only run when array entry is not nil
+    pkmn = Pokemon.create(name: pokemon["name"], 
+                   number: pokemon["national_id"])
+    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
+    pkmn.sprite = image
+    image.close
+    pkmn.save!
+    pokemon["descriptions"].each do |description|
+      desc = HTTParty.get(base_uri + pokemon["descriptions"][pokemon["descriptions"].index(description)]["resource_uri"])
+      pkmn.descriptions.create!(text: desc["description"])
+    end
+  end
+end
+
+@pkmn = Pokemon.all
 
 
-
-#Entry.destroy_all
-
-# pokemon_data = []
-# pokemon_data[0] = nil
-# (1..151).each do |number|
-#   pokemon_data[number] = HTTParty.get("http://pokeapi.co/api/v1/pokemon/#{number}/")
-# end
-
-# puts pokemon_data[1]["name"]
-
-# base_uri = "http://pokeapi.co"
-
-# pokemon_data.each do |pokemon|
-#   if pokemon #only run when array entry is not nil
-#     pokemon_description = HTTParty.get(base_uri + pokemon["descriptions"][0]["resource_uri"])
-#     pokemon_sprite = HTTParty.get(base_uri + pokemon["sprites"][0]["resource_uri"])
-#     Pokemon.create(name: pokemon["name"], 
-#                    number: pokemon["national_id"],
-#                    description: pokemon_description["description"],
-#                    sprite: base_uri + pokemon_sprite["image"])
-#   end
-# end
+@pkmn.each do |p|
+  puts p.name
+  @desc = p.descriptions.all
+  @desc.each do |d|
+    puts d.text
+  end
+end
 
 # my_model_instance = MyModel.new
 # file = File.open(file_path)
