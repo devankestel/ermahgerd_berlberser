@@ -24,74 +24,74 @@ Description.destroy_all
 Entry.destroy_all
 Translation.destroy_all
 
-image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
-pkmn = Pokemon.create!(name: "Bulbasaur", 
-                number: 1)
-pkmn.sprite = image
-image.close
-pkmn.save!
+# image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
+# pkmn = Pokemon.create!(name: "Bulbasaur", 
+#                 number: 1)
+# pkmn.sprite = image
+# image.close
+# pkmn.save!
 
-bulbasaur = Pokemon.find_by(number: 1)
-puts bulbasaur.name
+# bulbasaur = Pokemon.find_by(number: 1)
+# puts bulbasaur.name
 
-desc1 = bulbasaur.descriptions.create!(text: "Oh my god, a wild Bulbasuar!")
-desc2 = bulbasaur.descriptions.create!(text: "Another Bulbasaur description.")
+# desc1 = bulbasaur.descriptions.create!(text: "Oh my god, a wild Bulbasuar!")
+# desc2 = bulbasaur.descriptions.create!(text: "Another Bulbasaur description.")
 
-ermahgerd = bulbasaur.entries.create!(name: "Berlberser",
-                                     language: "ermahgerd")
+# ermahgerd = bulbasaur.entries.create!(name: "Berlberser",
+#                                      language: "ermahgerd")
 
-terns1 = ermahgerd.translations.create!(text: "Ermahgerd, a werld Berlberser!")
-terns2 = ermahgerd.translations.create!(text: "Ernerther Berlberser dersrerptern.")
+# terns1 = ermahgerd.translations.create!(text: "Ermahgerd, a werld Berlberser!")
+# terns2 = ermahgerd.translations.create!(text: "Ernerther Berlberser dersrerptern.")
 
-chef = bulbasaur.entries.create!(name: "Bulbasah",
-                                     language: "chef")
+# chef = bulbasaur.entries.create!(name: "Bulbasah",
+#                                      language: "chef")
 
-bork1 = chef.translations.create!(text: "Bork Bork Bork!")
-bork2 = chef.translations.create!(text: "Another Bork Bork Bork")
+# bork1 = chef.translations.create!(text: "Bork Bork Bork!")
+# bork2 = chef.translations.create!(text: "Another Bork Bork Bork")
 
-fudd = bulbasaur.entries.create!(name: "Buwbasaw",
-                                 language: "fudd")
+# fudd = bulbasaur.entries.create!(name: "Buwbasaw",
+#                                  language: "fudd")
 
-twan1 = fudd.translations.create!(text:  "Wewd Buwbasaw!")
-twan2 = fudd.translations.create!(text: "Awnuder Buwbasaw descwiption.")
+# twan1 = fudd.translations.create!(text:  "Wewd Buwbasaw!")
+# twan2 = fudd.translations.create!(text: "Awnuder Buwbasaw descwiption.")
 
-pirate = bulbasaur.entries.create!(name: "Bulbasarrr",
-                                    language: "pirate")
+# pirate = bulbasaur.entries.create!(name: "Bulbasarrr",
+#                                     language: "pirate")
 
-trrran1 = pirate.translations.create!(text:  "Avast! A Bulbasarrr!")
-trrran2 = pirate.translations.create!(text: "Bulbasarrr, me hardy.")
+# trrran1 = pirate.translations.create!(text:  "Avast! A Bulbasarrr!")
+# trrran2 = pirate.translations.create!(text: "Bulbasarrr, me hardy.")
 
-puts random_pirate_exclamation
-puts random_pirate_exclamation
-puts random_pirate_exclamation
-puts random_pirate_exclamation
-puts ""
-puts to_fudd("Shhh! Be verrry quiet. I'm hunting a rascally Bulbasaur.")
-puts ""
-puts random_pirate_verb("VBP")
-puts random_pirate_verb("VB")
-puts random_pirate_verb("VBG")
-puts random_pirate_verb("VBZ")
-puts random_pirate_verb("VBN")
-puts random_pirate_verb("VVV")
-puts ""
-puts random_pirate_adjective
-puts random_pirate_adjective
-puts random_pirate_adjective
-puts ""
-puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
-puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
-puts to_fudd("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
-puts "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.".to_chef
+# puts random_pirate_exclamation
+# puts random_pirate_exclamation
+# puts random_pirate_exclamation
+# puts random_pirate_exclamation
+# puts ""
+# puts to_fudd("Shhh! Be verrry quiet. I'm hunting a rascally Bulbasaur.")
+# puts ""
+# puts random_pirate_verb("VBP")
+# puts random_pirate_verb("VB")
+# puts random_pirate_verb("VBG")
+# puts random_pirate_verb("VBZ")
+# puts random_pirate_verb("VBN")
+# puts random_pirate_verb("VVV")
+# puts ""
+# puts random_pirate_adjective
+# puts random_pirate_adjective
+# puts random_pirate_adjective
+# puts ""
+# puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
+# puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
+# puts to_fudd("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
+# puts "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.".to_chef
 
 
 pokemon_data = []
 pokemon_data[0] = nil
-(152..157).each do |number|
+(1..151).each do |number|
   pokemon_data[number] = HTTParty.get("http://pokeapi.co/api/v1/pokemon/#{number}/")
 end
 
-puts pokemon_data[152]["name"]
+puts pokemon_data[1]["name"]
 
 base_uri = "http://pokeapi.co"
 
@@ -99,7 +99,7 @@ pokemon_data.each do |pokemon|
   if pokemon #only run when array entry is not nil
     pkmn = Pokemon.create(name: pokemon["name"], 
                    number: pokemon["national_id"])
-    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
+    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/#{pkmn.number}.svg")
     pkmn.sprite = image
     image.close
     pkmn.save!
