@@ -1,3 +1,5 @@
+<div id="lang_nav">
 <% links.each do |link| %>
-  <%= link_to image_tag("#{link}.svg"), pokemon_path(pokemon, language: link) %>
+  <%= link_to image_tag("#{link}.svg", id: "lang_bulba"), pokemon_path(pokemon, language: link) %>
 <% end %>
+</div>

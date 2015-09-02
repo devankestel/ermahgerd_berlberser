@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  font-family: Helvetica;
+  text-align: center;
+  border: solid 5px;
+}
+
+#lang_nav{
+  background-color: #ddd;
+  padding: 2.5%;
+  border: solid 5px;
+  border-color: blue;
+}
+
+#lang_bulba{
+  border: solid 5px;
+  border-color: green;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+  color: #eee;
+}
+#pkmn_name{
+  font-size: 2.5em;
+  border: solid 5px;
+  border-color: purple;
+  padding: 2.5%;
+}
+
+#sprite{
+  border: solid 5px;
+  border-color: orange;
+}
+
+#pkmn_sprite_number{
+  border: solid 5px;
+  border-color: red;
+  width: 50%;
+  margin-left: 25%;
+}
+
+
+
