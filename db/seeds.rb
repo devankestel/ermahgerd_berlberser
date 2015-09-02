@@ -110,16 +110,80 @@ pokemon_data.each do |pokemon|
   end
 end
 
+# Pokemon.all.each do |pokemon|
+#   percent_description = pokemon.description.gsub("%", " percent")
+#   plus_description = percent_description.gsub(" ", "+")
+#   description_query = "description=" + plus_description
+#   number_query = "number=" + "pokedex+number:+" + pokemon.number.to_s
+#   name_query = "name=" + "ohmygod,+a+wild+" + pokemon.name + "!"
+#   erma_query = erma_base_url + description_query + "&" + number_query + "&" + name_query
+#   erma_result = HTTParty.get(erma_query, format: :json)
+#   Ermahgerd.create(name: erma_result["name"],
+#                    number: erma_result["number"],
+#                    description: erma_result["description"],
+#                    sprite: pokemon.sprite)
+# end
+
 @pkmn = Pokemon.all
 
+erma_base_url = "http://ermahgerd.herokuapp.com/ternslert?"
 
 @pkmn.each do |p|
   puts p.name
-  @desc = p.descriptions.all
+  #add in entry for each language with name and number
+  chefname = "On the menu tonight, a #{p.name} stew!".to_chef
+  chefnumber = "Here we have Pokedex Number: #{p.number}".to_chef
+  e_ch = p.entries.create!(name: chefname,
+                    number: chefnumber,
+                    language: "chef")
+  puts e_ch.name
+  puts e_ch.number
+  puts e_ch.language
+  puts ""
+  #API calls here
+  number_query = "number=" + "pokedex+number:+" + p.number.to_s
+  name_query = "name=" + "ohmygod,+a+wild+" + p.name + "!"
+  erma_query = erma_base_url + number_query + "&" + name_query
+  erma_result = HTTParty.get(erma_query, format: :json)
+  e_er = p.entries.create!(name: erma_result["name"],
+                    number: erma_result["number"],
+                    language: "ermahgerd")
+  puts e_er.name
+  puts e_er.number
+  puts e_er.language
+  puts ""
+  piratename = random_pirate_exclamation + to_pirate(" There is a ") + " " + random_pirate_adjective + " " + to_pirate(p.name) + "!"
+  piratenumber = to_pirate("Silly Pokedex Number: #{p.number}").titleize
+  e_p = p.entries.create!(name: piratename,
+                    number: piratenumber,
+                    language: "pirate")
+  puts e_p.name
+  puts e_p.number
+  puts e_p.language
+  puts ""
+  #wascawy stuff here
+  fuddname = to_fudd("Shhh! Be verrry quiet. I'm hunting a rascally #{p.name}.")
+  fuddnumber = to_fudd("Pokedex Number: #{p.number}")
+  e_f = p.entries.create!(name: fuddname,
+                    number: fuddnumber,
+                    language: "fudd")
+  puts e_f.name
+  puts e_f.number
+  puts e_f.language
+  puts ""
+  @desc = p.descriptions.all 
   @desc.each do |d|
-    puts d.text
+    #add descriptions as translations here
+    desc_query = "description=" + d.text.gsub("%", " percent").gsub(" ", "+")
+    erma_query = erma_base_url + desc_query
+    erma_result = HTTParty.get(erma_query, format: :json)
+    d_er = e_er.translations.create!(text: erma_result["description"])
+    puts d_er.text
+    puts ""
+    
   end
 end
+
 
 # my_model_instance = MyModel.new
 # file = File.open(file_path)
@@ -146,18 +210,6 @@ end
 
 # erma_base_url = "http://ermahgerd.herokuapp.com/ternslert?"
 
-# Pokemon.all.each do |pokemon|
-#   percent_description = pokemon.description.gsub("%", " percent")
-#   plus_description = percent_description.gsub(" ", "+")
-#   description_query = "description=" + plus_description
-#   number_query = "number=" + "pokedex+number:+" + pokemon.number.to_s
-#   name_query = "name=" + "ohmygod,+a+wild+" + pokemon.name + "!"
-#   erma_query = erma_base_url + description_query + "&" + number_query + "&" + name_query
-#   erma_result = HTTParty.get(erma_query, format: :json)
-#   Ermahgerd.create(name: erma_result["name"],
-#                    number: erma_result["number"],
-#                    description: erma_result["description"],
-#                    sprite: pokemon.sprite)
-# end
+
 
 # puts Ermahgerd.find_by(sprite: bulbasaur.sprite).name
