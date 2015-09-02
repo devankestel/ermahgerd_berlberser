@@ -186,6 +186,9 @@ erma_base_url = "http://ermahgerd.herokuapp.com/ternslert?"
     d_p = e_p.translations.create!(text: to_pirate(d.text))
     puts d_p.text
     puts ""
+    d_f = e_f.translations.create!(text: to_fudd(d.text))
+    puts d_f.text
+    puts ""
 
   end
 end
