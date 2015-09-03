@@ -5,6 +5,6 @@
   <%= image_tag(@pokemon.sprite, id: "sprite") %>
   <h2><%= @pokemon.select_entry(@language).number %></h2>
 </div>
-<h2><%= @pokemon.select_entry(@language).select_translation.text %></h2>
+<h2 id="pkmn_translation"><%= @pokemon.select_entry(@language).select_translation.text %></h2>
 
 <h2><%= link_to "Back to Pokedex", pokemons_path %></h2>

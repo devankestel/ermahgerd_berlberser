@@ -18,6 +18,7 @@ body{
   font-family: Helvetica;
   text-align: center;
   border: solid 5px;
+  background-color: hsla(360, 25%, 25%, 0.1);
 }
 
 #lang_nav{
@@ -42,9 +43,14 @@ li{
 }
 #pkmn_name{
   font-size: 2.5em;
-  border: solid 5px;
-  border-color: purple;
+  border: solid 0.25em;
+  color: hsla(265, 50%, 50%, 1);
+  border-color: hsla(265, 50%, 50%, 1);
+  border-radius: 0.25em;
+  background-color: hsla(225, 50%, 50%, 0.25);
   padding: 2.5%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 #sprite{
@@ -53,10 +59,24 @@ li{
 }
 
 #pkmn_sprite_number{
-  border: solid 5px;
+  border: solid 0.33em;
   border-color: red;
+  border-radius: 1.5em;
   width: 50%;
   margin-left: 25%;
+  padding: 2.5%;
+  background-color: hsla(360, 50%, 50%, 0.25);
+}
+
+#pkmn_translation{
+  border: solid 0.25em;
+  border-color: yellow;
+  border-radius: 0.25em;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2.5%;
+  background-color: hsla(60, 50%, 70%, 0.25);
+
 }
 
 
