@@ -99,7 +99,8 @@ pokemon_data.each do |pokemon|
   if pokemon #only run when array entry is not nil
     pkmn = Pokemon.create(name: pokemon["name"], 
                    number: pokemon["national_id"])
-    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/#{pkmn.number}.svg")
+    #File.expand_path("../recipe_samples.txt", __FILE__)
+    image = File.open(File.expand_path("../app/assets/images/#{pkmn.number}.svg", __FILE__))
     pkmn.sprite = image
     image.close
     pkmn.save!
