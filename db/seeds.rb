@@ -100,7 +100,7 @@ pokemon_data.each do |pokemon|
     pkmn = Pokemon.create(name: pokemon["name"], 
                    number: pokemon["national_id"])
     #File.expand_path("../recipe_samples.txt", __FILE__)
-    image = File.open(File.expand_path("../app/assets/images/#{pkmn.number}.svg", __FILE__))
+    image = File.open(File.expand_path("../../app/assets/images/#{pkmn.number}.svg", __FILE__))
     pkmn.sprite = image
     image.close
     pkmn.save!
