@@ -24,65 +24,7 @@ Description.destroy_all
 Entry.destroy_all
 Translation.destroy_all
 
-# image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/1.svg")
-# pkmn = Pokemon.create!(name: "Bulbasaur", 
-#                 number: 1)
-# pkmn.sprite = image
-# image.close
-# pkmn.save!
 
-# bulbasaur = Pokemon.find_by(number: 1)
-# puts bulbasaur.name
-
-# desc1 = bulbasaur.descriptions.create!(text: "Oh my god, a wild Bulbasuar!")
-# desc2 = bulbasaur.descriptions.create!(text: "Another Bulbasaur description.")
-
-# ermahgerd = bulbasaur.entries.create!(name: "Berlberser",
-#                                      language: "ermahgerd")
-
-# terns1 = ermahgerd.translations.create!(text: "Ermahgerd, a werld Berlberser!")
-# terns2 = ermahgerd.translations.create!(text: "Ernerther Berlberser dersrerptern.")
-
-# chef = bulbasaur.entries.create!(name: "Bulbasah",
-#                                      language: "chef")
-
-# bork1 = chef.translations.create!(text: "Bork Bork Bork!")
-# bork2 = chef.translations.create!(text: "Another Bork Bork Bork")
-
-# fudd = bulbasaur.entries.create!(name: "Buwbasaw",
-#                                  language: "fudd")
-
-# twan1 = fudd.translations.create!(text:  "Wewd Buwbasaw!")
-# twan2 = fudd.translations.create!(text: "Awnuder Buwbasaw descwiption.")
-
-# pirate = bulbasaur.entries.create!(name: "Bulbasarrr",
-#                                     language: "pirate")
-
-# trrran1 = pirate.translations.create!(text:  "Avast! A Bulbasarrr!")
-# trrran2 = pirate.translations.create!(text: "Bulbasarrr, me hardy.")
-
-# puts random_pirate_exclamation
-# puts random_pirate_exclamation
-# puts random_pirate_exclamation
-# puts random_pirate_exclamation
-# puts ""
-# puts to_fudd("Shhh! Be verrry quiet. I'm hunting a rascally Bulbasaur.")
-# puts ""
-# puts random_pirate_verb("VBP")
-# puts random_pirate_verb("VB")
-# puts random_pirate_verb("VBG")
-# puts random_pirate_verb("VBZ")
-# puts random_pirate_verb("VBN")
-# puts random_pirate_verb("VVV")
-# puts ""
-# puts random_pirate_adjective
-# puts random_pirate_adjective
-# puts random_pirate_adjective
-# puts ""
-# puts "#{random_pirate_exclamation} #{pirate_subs('There')} #{pirate_subs('is')} a #{random_pirate_adjective} #{to_arrr('Bulbasaur')}!"
-# puts to_pirate("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
-# puts to_fudd("The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.")
-# puts "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enourmous size.".to_chef
 
 
 pokemon_data = []
@@ -100,14 +42,27 @@ pokemon_data.each do |pokemon|
     pkmn = Pokemon.create(name: pokemon["name"], 
                    number: pokemon["national_id"])
     #File.expand_path("../recipe_samples.txt", __FILE__)
-    image = File.open(File.expand_path("../../app/assets/images/#{pkmn.number}.svg", __FILE__))
+    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/#{pkmn.number}.svg") 
     pkmn.sprite = image
     image.close
     pkmn.save!
+    desc_array = []
     pokemon["descriptions"].each do |description|
       desc = HTTParty.get(base_uri + pokemon["descriptions"][pokemon["descriptions"].index(description)]["resource_uri"])
-      pkmn.descriptions.create!(text: desc["description"])
+      desc_array << desc["description"]
     end
+    selected_indices = []
+    while selected_indices.uniq.length < 5 do
+      selected_indices << rand(0..desc_array.uniq.length-1)
+    end
+
+    selected_descriptions = []
+    selected_indices.uniq.each do |index|
+      selected_descriptions << desc_array.uniq[index]
+    end
+    selected_descriptions.each do |description|
+      pkmn.descriptions.create!(text: description)
+    end    
   end
 end
 
@@ -153,7 +108,7 @@ erma_base_url = "http://ermahgerd.herokuapp.com/ternslert?"
   puts e_er.number
   puts e_er.language
   puts ""
-  piratename = random_pirate_exclamation + to_pirate(" There is a ") + " " + random_pirate_adjective + " " + to_pirate(p.name) + "!"
+  piratename = random_pirate_exclamation + " " + to_pirate("There is a") + " " + random_pirate_adjective + " " + to_pirate(p.name) + "!"
   piratenumber = to_pirate("Silly Pokedex Number: #{p.number}").titleize
   e_p = p.entries.create!(name: piratename,
                     number: piratenumber,
