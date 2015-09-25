@@ -2,7 +2,7 @@
 
 <h2 id="pkmn_name"><%= @pokemon.select_entry(@language).name %></h2>
 <div id="pkmn_sprite_number">
-  <%= image_tag(@pokemon.sprite, id: "sprite") %>
+  <%= image_tag("#{@pokemon.number}.svg") %>
   <h2><%= @pokemon.select_entry(@language).number %></h2>
 </div>
 <h2 id="pkmn_translation"><%= @pokemon.select_entry(@language).select_translation.text %></h2>

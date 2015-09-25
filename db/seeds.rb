@@ -42,10 +42,10 @@ pokemon_data.each do |pokemon|
     pkmn = Pokemon.create(name: pokemon["name"], 
                    number: pokemon["national_id"])
     #File.expand_path("../recipe_samples.txt", __FILE__)
-    image = File.open("/Users/devankestel1/Documents/ermahgerd_berlberser/app/assets/images/#{pkmn.number}.svg") 
-    pkmn.sprite = image
-    image.close
-    pkmn.save!
+    #image = File.open(File.expand_path("../../app/assets/images/#{pkmn.number}.svg", __FILE__)) 
+    #pkmn.sprite = image
+    #image.close
+    #pkmn.save!
     desc_array = []
     pokemon["descriptions"].each do |description|
       desc = HTTParty.get(base_uri + pokemon["descriptions"][pokemon["descriptions"].index(description)]["resource_uri"])
