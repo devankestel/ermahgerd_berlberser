@@ -21,6 +21,19 @@ body{
   background-color: hsla(360, 25%, 25%, 0.1);
 }
 
+.line{
+  float: left;
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-bottom: 3%;
+}
+.item {
+  position: relative;
+  float: left;
+  left: 100%;
+}
+
 #lang_nav{
   background-color: #ddd;
   padding: 2.5%;

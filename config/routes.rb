@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 #              PUT    /pokemons/:id(.:format)      pokemons#update
 #              DELETE /pokemons/:id(.:format)      pokemons#destroy
 
+  root 'pokemons#index'
   resources :pokemons
 
   # The priority is based upon order of creation: first created -> highest priority.
