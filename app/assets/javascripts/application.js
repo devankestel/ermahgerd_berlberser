@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-mixpanel.track_links('#bulba_pirate', 'Pirate Link Clicked')
+jquery(function($){
+  mixpanel.track_links('#bulba_pirate', 'Pirate Link Clicked')
+});

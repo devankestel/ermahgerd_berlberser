@@ -2,5 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-  mixpanel.track_links('#bulba_pirate’, 'Pirate link clicked’)
