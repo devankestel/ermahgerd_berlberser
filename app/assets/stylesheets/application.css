@@ -16,8 +16,8 @@
 
 body{
   font-family: Helvetica;
-  text-align: center;
   border: solid 5px;
+  text-align: center;
   background-color: hsla(360, 25%, 25%, 0.1);
 }
 
@@ -26,12 +26,19 @@ body{
   width: 100%;
   display: block;
   position: relative;
-  padding-bottom: 3%;
+  border: solid 3px;
 }
 .item {
   position: relative;
   float: left;
-  left: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+  left: 0%;
+}
+
+#icon{
+  width: 4em;
+  height: 4em;
 }
 
 #lang_nav{
