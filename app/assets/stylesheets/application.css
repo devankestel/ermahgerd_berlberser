@@ -16,7 +16,7 @@
 
 body{
   font-family: Helvetica;
-  border: solid 5px;
+  /*border: solid 5px;*/
   text-align: center;
   background-color: hsla(360, 25%, 25%, 0.1);
 }
@@ -26,7 +26,7 @@ body{
   width: 100%;
   display: block;
   position: relative;
-  border: solid 3px;
+  /*border: solid 3px;*/
 }
 .item {
   position: relative;
@@ -42,15 +42,21 @@ body{
 }
 
 #lang_nav{
-  background-color: #ddd;
-  padding: 2.5%;
+  padding: 1em%;
   border: solid 5px;
   border-color: blue;
+  display: block;
 }
 
 #lang_bulba{
   border: solid 5px;
   border-color: green;
+}
+
+#bulba{
+  width: 10em;
+  height: 10em;
+  border: solid 1px;
 }
 
 a{
@@ -61,7 +67,7 @@ li{
   list-style-type: none;
   color: #eee;
 }
-#pkmn_name{
+h2#pkmn_name{
   font-size: 2.5em;
   border: solid 0.25em;
   color: hsla(265, 50%, 50%, 1);
@@ -69,8 +75,6 @@ li{
   border-radius: 0.25em;
   background-color: hsla(225, 50%, 50%, 0.25);
   padding: 2.5%;
-  margin-right: 5%;
-  margin-left: 5%;
 }
 
 #sprite{
