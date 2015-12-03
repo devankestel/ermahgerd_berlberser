@@ -43,10 +43,10 @@ li{
 }
 #pkmn_name{
   font-size: 2.5em;
-  border: solid 0.25em;
+  // border: solid 0.25em;
   color: hsla(265, 50%, 50%, 1);
-  border-color: hsla(265, 50%, 50%, 1);
-  border-radius: 0.25em;
+  // border-color: hsla(265, 50%, 50%, 1);
+  // border-radius: 0.25em;
   background-color: hsla(225, 50%, 50%, 0.25);
   padding: 2.5%;
   margin-right: 5%;
@@ -54,14 +54,14 @@ li{
 }
 
 #sprite{
-  border: solid 5px;
-  border-color: orange;
+  // border: solid 5px;
+  // border-color: orange;
 }
 
 #pkmn_sprite_number{
-  border: solid 0.33em;
-  border-color: red;
-  border-radius: 1.5em;
+  // border: solid 0.33em;
+  // border-color: red;
+  // border-radius: 1.5em;
   width: 50%;
   margin-left: 25%;
   padding: 2.5%;
@@ -69,9 +69,9 @@ li{
 }
 
 #pkmn_translation{
-  border: solid 0.25em;
-  border-color: yellow;
-  border-radius: 0.25em;
+  // border: solid 0.25em;
+  // border-color: yellow;
+  // border-radius: 0.25em;
   margin-left: 5%;
   margin-right: 5%;
   padding: 2.5%;
