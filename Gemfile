@@ -35,6 +35,9 @@ gem 'engtagger'
 #Add Puma for a faster server experience
 gem 'puma'
 
+#Add foreman to work with Heroku proc file
+gem 'foreman'
+
 group :production do
 
   gem 'pg'
