@@ -38,6 +38,12 @@ gem 'puma'
 #Add foreman to work with Heroku proc file
 gem 'foreman'
 
+#Add bourbon, neat, bitters, and refills for an easier grid
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 group :production do
 
   gem 'pg'
