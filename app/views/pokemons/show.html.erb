@@ -1,16 +1,22 @@
 <nav>
   <%= render partial: "link", locals: {links: ["ermahgerd", "chef", "pirate", "fudd"], pokemon: params[:id]} %>
 </nav>
-<div class="line">
-  <h2 id="pkmn_name"><%= @pokemon.select_entry(@language).name %></h2>
-</div>
-<div id="pkmn_sprite_number" class="line">
-  <%= image_tag("#{@pokemon.number}.svg") %>
-  <h2><%= @pokemon.select_entry(@language).number %></h2>
-</div>
-<div class="line">
-  <h2 id="pkmn_translation"><%= @pokemon.select_entry(@language).select_translation.text %></h2>
-</div>
-<div class="line">
+<main>
+  <section>
+    <div class="title">
+      <h1><%= @pokemon.select_entry(@language).name %></h1>
+    </div>
+  </section>
+  <section>
+    <div class="sprite">
+      <%= image_tag("#{@pokemon.number}.svg") %>  
+    </div>
+    <div class="translation">
+      <h2><%= @pokemon.select_entry(@language).number %></h2>
+      <h2><%= @pokemon.select_entry(@language).select_translation.text %></h2>
+    </div>
+  </section>
+</main>
+<div class="back_link">
   <h2><%= link_to "Back to Pokedex", pokemons_path %></h2>
 <div>
