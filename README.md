@@ -1,4 +1,4 @@
-#README
+#Ermahgerd Berlberser README
 
 ##About
 Ermahgerd Berlberser is a Rails 4.2 App that translates Pokedex entries for the first 151 Pokemon to Ermahgerd, Swedish Chef, Pirate, and Elmer Fudd meme dialects. 
