@@ -1,28 +1,12 @@
-== README
+#README
 
-===About
-Ermahgerd Berlberser is a Rails App that translates Pokedex entries for the first 151 Pokemon to Ermahgerd, Swedish Chef, Pirate, and Elmer Fudd meme dialects. 
+##About
+Ermahgerd Berlberser is a Rails 4.2 App that translates Pokedex entries for the first 151 Pokemon to Ermahgerd, Swedish Chef, Pirate, and Elmer Fudd meme dialects. 
 
-The deployed version is available [I'm an inline-style link](https://www.google.com) 
+The deployed version is available [here](http://ermahgerdberlberser.herokuapp.com). 
 
-===Setup
+##Setup
 
-* System dependencies
+Should you want to pull down a local copy, please remember to run `rake db:seed` on the database. This populates all of the various necessary API calls. Be advised that the process may take some time as several thousand API calls will be made. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+As usual for a Rails App, `bundle install` is necessary for installing dependencies.
